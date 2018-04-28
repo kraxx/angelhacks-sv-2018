@@ -1,9 +1,9 @@
-const someModel = require('../model/something');
+const reddit = require('../model/reddit');
 
 
 module.exports = {
-  someWhere: {
-    get: (req, res) => (something.get(req))
+  reddit: {
+    get: (req, res) => (reddit.get(req))
     .then((result) => {
       const body = JSON.stringify(result);
       res.json(body);

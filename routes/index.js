@@ -6,8 +6,8 @@ const controller = require('../controller/index');
 
 /* GET home page. */
 
-router.route('/someWhere')
-.get(controller.someWhere.get);
+router.route('/reddit')
+.get(controller.reddit.get);
 
 /*
 router.get('/', function(req, res, next) {
