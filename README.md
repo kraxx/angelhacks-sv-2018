@@ -20,19 +20,19 @@
     "type": "image",
     // type should be "image(including .gif) / video / link / text"
     "url": ""
-  },{
+  }, {
     "title": "Authentic Signature",
     "type": "text",
     "url": ""
-  }{
+  }, {
     "title": "The dogs are hunting",
     "type": "video",
     "url": ""
-  }{
+  }, {
     "title": "Goodboy making the newborn baby stop crying",
     "type": "image",
     "url": ""
-  }{
+  }, {
     "title": "Mexican Government Protects Peyote for Native Rituals",
     "type": "link",
     "url": ""
@@ -55,19 +55,19 @@
     "type": "image",
     // type should be "image(including .gif) / video / link / text"
     "url": ""
-  },{
+  }, {
     "title": "Authentic Signature",
     "type": "text",
     "url": ""
-  }{
+  }, {
     "title": "The dogs are hunting",
     "type": "video",
     "url": ""
-  }{
+  }, {
     "title": "Goodboy making the newborn baby stop crying",
     "type": "image",
     "url": ""
-  }{
+  }, {
     "title": "Mexican Government Protects Peyote for Native Rituals",
     "type": "link",
     "url": ""
@@ -91,13 +91,13 @@
   },{
     "title": "Authentic Signature",
     "url": ""
-  }{
+  }, {
     "title": "The dogs are hunting",
     "url": ""
-  }{
+  }, {
     "title": "Goodboy making the newborn baby stop crying",
     "url": ""
-  }{
+  }, {
     "title": "Mexican Government Protects Peyote for Native Rituals",
     "url": ""
   }]
@@ -106,51 +106,34 @@
 
 ## Post Detail
 
-> [GET] index?category=new&startIndex=5
+> [GET] postDetail?URL=http~~
 
 ```json
 {
   "title": "",
-  "type": "image",
   "contents": "",
   "createdBy": "",
   "comments": [
     {
       "contents": "Hello!",
       "createdBy": "rockethyun",
-      "points": 421,
-      "subComments": [
-        {
-          "contents": "Hello!",
-          "createdBy": "rockethyun",
-          "points": 421,
-          "subComments": [
-
-            ...
-
-
-          ]
-        }
-      ]
+      "points": 421
     },
     {
       "contents": "Hello!",
       "createdBy": "rockethyun",
-      "points": 421,
-      "subComments": [
-        {
-          "contents": "Hello!",
-          "createdBy": "rockethyun",
-          "points": 421,
-          "subComments": [
-
-            ...
-
-
-          ]
-        }
-      ]
-    }
+      "points": 421
+    },
+    {
+      "contents": "Hello!",
+      "createdBy": "rockethyun",
+      "points": 421
+    },
+    {
+      "contents": "Hello!",
+      "createdBy": "rockethyun",
+      "points": 421
+    },
   ]
 }
 ```
