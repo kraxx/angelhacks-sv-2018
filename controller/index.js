@@ -1,9 +1,9 @@
-const reddit = require('../model/reddit');
+const postDetail = require('../model/postDetail');
 
 
 module.exports = {
-  reddit: {
-    get: (req, res) => (reddit.get(req))
+  postDetail: {
+    get: (req, res) => (postDetail.get(req))
     .then((result) => {
       const body = JSON.stringify(result);
       res.json(body);
