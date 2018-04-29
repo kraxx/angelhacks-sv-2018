@@ -2,7 +2,7 @@ const rp = require('request-promise');
 const himalaya = require('himalaya');
 const cheerio = require('cheerio');
 
-const URL = 'https://www.reddit.com/r/OldSchoolCool/comments/8fqjdl/17_year_old_jackie_mitchell_applying_makeup/';
+let URL = 'https://www.reddit.com/r/OldSchoolCool/comments/8fqjdl/17_year_old_jackie_mitchell_applying_makeup/';
 
 module.exports = {
   get: (req) => {
@@ -37,7 +37,6 @@ module.exports = {
         comments.push(container);
       })
 
-      const test = comments;
       const container = {
         title: title,
         contents: contents,
