@@ -62,6 +62,7 @@ var parsedObject =
         },
         "postDetail": {
             "title": "North Korea's nuclear test site will close in May, South Korea says",
+            "contents": "",
             "createdBy": "",
             "comments": [
                 {
@@ -98,7 +99,7 @@ const handlers = {
     },
     "ShowingWebsiteIntent": function() {
         var alexa = this;
-        var siteName = alexa.event.request.intent.slots.site.value;
+        var siteName = alexa.event.request.intent.slots.site.value || alexa.attributes.lastState.siteName;
 
         alexa.attributes.lastState = {
             level: 1,
@@ -137,7 +138,8 @@ const handlers = {
         alexa.attributes.lastState = {
             level: 2,
             category: category,
-            startIndex: 0
+            startIndex: 0,
+            posts: posts
         }
         alexa.response.speak(`
                                 You've chosen ${category} category. Here's first three posts.
@@ -207,7 +209,7 @@ const handlers = {
                                     Here's next three comments.
                                     1. With ${comments[0].points} points. ${comments[0].contents}. By ${comments[0].createdBy}.
                                     2. With ${comments[1].points} points. ${comments[1].contents}. By ${comments[1].createdBy}.
-                                    What do you want to do? Say 'Other comments.' or 'Go back to posts'.
+                                    What do you want to do? Say 'Other comments.' or 'Browse back to posts'.
                                 `).listen();
             alexa.emit(':responseReady');
 
@@ -216,7 +218,7 @@ const handlers = {
     "ReadingPostIntent": function() {
         var alexa = this;
         var postNumber =  Number(alexa.event.request.intent.slots.number.value);
-        var postType = alexa.attributes.lastState.posts[postNumber-1].type;
+        // var postType = alexa.attributes.lastState.posts;
         // http.get(API_URL, function(res){
         //
         //     res = res.setEncoding('utf8');
@@ -234,9 +236,9 @@ const handlers = {
         };
         alexa.response.speak(`
                                 Reading the post.
-                                ${post.title} by ${post.createdBy}.
-                                Contents: ${hasImage(postType) ? ' There is an image' : ''}. ${post.contents === "" ? "No Contents." : post.contents}
-                                What do you want to do? Say 'Read comments.' or 'Go Back.'
+                                ${post.title}. by ${post.createdBy}.
+                                Contents: ${post.contents === "" ? "No Contents." : post.contents}
+                                What do you want to do? Say 'Read comments.' or 'Browse back.'
                             `).listen();
         alexa.emit(':responseReady');
         //     });
@@ -262,22 +264,24 @@ const handlers = {
                                 Reading the comments of the post.
                                 1. With ${comments[0].points} points. ${comments[0].contents}. By ${comments[0].createdBy}.
                                 2. With ${comments[1].points} points. ${comments[1].contents}. By ${comments[1].createdBy}.
-                                What do you want to do? Say 'Other comments.' or 'Go back to posts'.
+                                What do you want to do? Say 'Other comments.' or 'Browse back to posts'.
                             `).listen();
         alexa.emit(':responseReady');
 
 
     },
-    "GoingBackIntent": function() {
+    "BackIntent": function() {
         var alexa = this;
         var level = alexa.attributes.lastState.level;
         var dest = alexa.event.request.intent.slots.destination.value;
 
         if(dest==="home") {
+            alexa.attributes.lastState.siteName = "reddit";
             this.emitWithState("ShowingWebsiteIntent");
         } else {
             switch(level) {
                 case 2:
+                    alexa.attributes.lastState.siteName = "reddit";
                     this.emitWithState("ShowingWebsiteIntent");
                     break;
                 case 3:
@@ -292,17 +296,17 @@ const handlers = {
         }
     },
     "AMAZON.CancelIntent": function() {
-        this.response.speak(`Exiting. Good Bye.1`);
+        this.response.speak(`Exiting. Good Bye.`);
         this.emit(':responseReady');
 
     },
     "AMAZON.StopIntent": function() {
-        this.response.speak(`Exiting. Good Bye.2`);
+        this.response.speak(`Exiting. Good Bye.`);
         this.emit(':responseReady');
 
     },
     'Unhandled': function () {
-        this.emit(':responseReady', 'Exiting. Good Bye.3');
+        this.emit(':responseReady', 'Exiting. Good Bye.');
     }
 };
 
