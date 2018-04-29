@@ -3,11 +3,19 @@ var router = express.Router();
 var rp = require("request-promise");
 var axios = require("axios");
 var cheerio = require("cheerio");
+const controller = require('../controller/index');
+
 
 /* GET home page. */
+
+router.route('/someWhere')
+.get(controller.someWhere.get);
+
+/*
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
+*/
 
 router.get('/index', function(req, res, next){
   rp(`https://www.reddit.com/`)
