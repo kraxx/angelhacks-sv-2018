@@ -4,11 +4,8 @@
 
 > [GET] /index
 
-***request***
-
-```json
-//nothing
-```
+- ***"hot"*** category is default, so you don't need a query string here.
+- but for other categories, you need to send a "category" query string.
 
 ***response***
 
@@ -20,30 +17,30 @@
   "currentCategory": "hot",
   "posts": [{
     "title": "Never go full retard",
+    "type": "image",
+    // type should be "image(including .gif) / video / link / text"
     "url": ""
   },{
     "title": "Authentic Signature",
+    "type": "text",
     "url": ""
   }{
     "title": "The dogs are hunting",
+    "type": "video",
     "url": ""
   }{
     "title": "Goodboy making the newborn baby stop crying",
+    "type": "image",
     "url": ""
   }{
     "title": "Mexican Government Protects Peyote for Native Rituals",
+    "type": "link",
     "url": ""
   }]
 }
 ```
 
 > [GET] /index?category=new
-
-***request***
-
-```json
-//nothing
-```
 
 ***response***
 
@@ -55,18 +52,24 @@
   "currentCategory": "new",
   "posts": [{
     "title": "Never go full retard",
+    "type": "image",
+    // type should be "image(including .gif) / video / link / text"
     "url": ""
   },{
     "title": "Authentic Signature",
+    "type": "text",
     "url": ""
   }{
     "title": "The dogs are hunting",
+    "type": "video",
     "url": ""
   }{
     "title": "Goodboy making the newborn baby stop crying",
+    "type": "image",
     "url": ""
   }{
     "title": "Mexican Government Protects Peyote for Native Rituals",
+    "type": "link",
     "url": ""
   }]
 }
@@ -98,5 +101,56 @@
     "title": "Mexican Government Protects Peyote for Native Rituals",
     "url": ""
   }]
+}
+```
+
+## Post Detail
+
+> [GET] index?category=new&startIndex=5
+
+```json
+{
+  "title": "",
+  "type": "image",
+  "contents": "",
+  "createdBy": "",
+  "comments": [
+    {
+      "contents": "Hello!",
+      "createdBy": "rockethyun",
+      "points": 421,
+      "subComments": [
+        {
+          "contents": "Hello!",
+          "createdBy": "rockethyun",
+          "points": 421,
+          "subComments": [
+
+            ...
+
+
+          ]
+        }
+      ]
+    },
+    {
+      "contents": "Hello!",
+      "createdBy": "rockethyun",
+      "points": 421,
+      "subComments": [
+        {
+          "contents": "Hello!",
+          "createdBy": "rockethyun",
+          "points": 421,
+          "subComments": [
+
+            ...
+
+
+          ]
+        }
+      ]
+    }
+  ]
 }
 ```
