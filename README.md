@@ -106,51 +106,34 @@
 
 ## Post Detail
 
-> [GET] index?category=new&startIndex=5
+> [GET] postDetail?URL=http~~
 
 ```json
 {
   "title": "",
-  "type": "image",
   "contents": "",
   "createdBy": "",
   "comments": [
     {
       "contents": "Hello!",
       "createdBy": "rockethyun",
-      "points": 421,
-      "childComments": [
-        {
-          "contents": "Hello!",
-          "createdBy": "rockethyun",
-          "points": 421,
-          "childComments": [
-
-            ...
-
-
-          ]
-        }
-      ]
+      "points": 421
     },
     {
       "contents": "Hello!",
       "createdBy": "rockethyun",
-      "points": 421,
-      "childComments": [
-        {
-          "contents": "Hello!",
-          "createdBy": "rockethyun",
-          "points": 421,
-          "childComments": [
-
-            ...
-
-
-          ]
-        }
-      ]
-    }
+      "points": 421
+    },
+    {
+      "contents": "Hello!",
+      "createdBy": "rockethyun",
+      "points": 421
+    },
+    {
+      "contents": "Hello!",
+      "createdBy": "rockethyun",
+      "points": 421
+    },
   ]
 }
 ```
