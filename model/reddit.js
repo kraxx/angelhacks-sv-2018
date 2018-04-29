@@ -1,16 +1,22 @@
 const rp = require('request-promise');
-const cheerio = require('cheerio');
+const himalaya = require('himalaya');
+// const cheerio = require('cheerio');
 
-const options = {
-  uri: 'http://www.reddit.com',
-  transform: (body) => (cheerio.load(body)),
-}
+const URL = 'http://www.reddit.com';
+
+//
+// const options = {
+//   uri: URL,
+//   transform: (body) => (cheerio.load(body)),
+// }
+
 
 module.exports = {
-  get: (req) => (rp(options))
+  get: (req) => (rp(URL))
   .then((htmlString) => {
-    console.log(htmlString)
-    return htmlString;
+    const htmlToJSON = himalaya.parse(htmlString);
+    console.log(htmlToJSON)
+    return htmlToJSON;
   })
   ,
   post: (req) => {
