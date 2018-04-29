@@ -26,10 +26,10 @@
         User: "Read comments"  
         Response: "Reading the comments of the post. 1. With 4118 points. Congrats! If current trends are any indication, you'll get a ps4 and god of war for your efforts. 2. With 1138 points. I’m a single mom in my first semester of college. It’s not going so well and I’m discouraged. Thank you for this and congrats!! 3. With 688 points. They give you a baby for graduating? What do you want to do? Say 'Read one Child comments.' or 'Other comments.'"
 
-    - ***Reading Child Comments***
+        - ***Reading Child Comments***
 
-        User: "Read one Child comments"  
-        Response: "Reading the comments of the comment. 1. With 4118 points. Congrats! If current trends are any indication, you'll get a ps4 and god of war for your efforts. 2. With 1138 points. I’m a single mom in my first semester of college. It’s not going so well and I’m discouraged. Thank you for this and congrats!! 3. With 688 points. They give you a baby for graduating? What do you want to do? Say 'Read one Child comments' or 'Other comments.'"
+            User: "Read one Child comments"  
+            Response: "Reading the comments of the comment. 1. With 4118 points. Congrats! If current trends are any indication, you'll get a ps4 and god of war for your efforts. 2. With 1138 points. I’m a single mom in my first semester of college. It’s not going so well and I’m discouraged. Thank you for this and congrats!! 3. With 688 points. They give you a baby for graduating? What do you want to do? Say 'Read one Child comments' or 'Other comments.'"
 
     - ***Reading Other Comments***
 
